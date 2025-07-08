@@ -5,8 +5,155 @@
   <title>Nonoalko – Portafolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Aquí enlazamos el archivo externo de estilos -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Tipografía moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fefefe;
+      color: #2d2d2d;
+    }
+
+    header {
+      background: linear-gradient(to right, #222, #444);
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      margin-bottom: 0.2em;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 1em 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #0ae;
+    }
+
+    section {
+      padding: 3em 1em;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 1.5em;
+      color: #111;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5em;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.04);
+    }
+
+    .donar-btn {
+      display: inline-block;
+      background: #0a7;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1.5em;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .donar-btn:hover {
+      background: #088f6f;
+    }
+
+    form {
+      background: white;
+      padding: 2em;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1em;
+      margin-bottom: 1.2em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    form button {
+      background: #222;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #444;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
+      margin-top: 4em;
+    }
+
+    footer a {
+      color: #fdfdfd;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 0.7em;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
@@ -33,8 +180,10 @@
 
   <section id="donaciones">
     <h2>Apóyame con una Donación</h2>
-    <p>Tu apoyo me permite seguir creando arte independiente:</p>
-    <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">💖 Donar vía MercadoPago</a>
+    <p style="text-align: center;">Tu apoyo me permite seguir creando arte independiente:</p>
+    <div style="text-align: center;">
+      <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">💖 Donar vía MercadoPago</a>
+    </div>
   </section>
 
   <section id="encargos">
@@ -45,7 +194,7 @@
       <textarea name="mensaje" rows="5" placeholder="Describe tu idea, estilo, tamaño, colores..." required></textarea>
       <button type="submit">Enviar Encargo</button>
     </form>
-    <p>Te responderé lo antes posible para confirmar los detalles.</p>
+    <p style="text-align: center; font-size: 0.9em; color: #555;">Te responderé lo antes posible para confirmar los detalles.</p>
   </section>
 
   <footer>
@@ -54,11 +203,9 @@
       <a href="https://instagram.com/nonoalko_" target="_blank">Instagram</a> |
       <a href="https://tiktok.com/@nonoalko_" target="_blank">TikTok</a>
     </p>
-    <p>© 2025 Nonoalko – Todos los derechos reservados.</p>
+    <p style="font-size: 0.8em; color: #888;">© 2025 Nonoalko – Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Enlaza tu archivo JS aquí si luego agregas funciones -->
-  <script src="script.js"></script>
 </body>
 </html>
 
