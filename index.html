@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi portafolio artístico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #111;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background: #222;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      padding: 0.5em 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 2em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mis dibujos – Portafolio</h1>
+    <p>Arte, diseño de tatuajes y prints</p>
+  </header>
+
+  <nav>
+    <a href="#galeria">Galería</a>
+    <a href="#encargos">Encargos</a>
+    <a href="#prints">Prints</a>
+    <a href="#donaciones">Donaciones</a>
+    <a href="#precios">Precios</a>
+  </nav>
+
+  <section id="galeria">
+    <h2>Galería de Dibujos</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x400?text=Dibujo+1" alt="Dibujo 1">
+      <img src="https://via.placeholder.com/300x400?text=Dibujo+2" alt="Dibujo 2">
+      <img src="https://via.placeholder.com/300x400?text=Dibujo+3" alt="Dibujo 3">
+    </div>
+  </section>
+
+</body>
+</html>
