@@ -4,45 +4,53 @@
   <meta charset="UTF-8">
   <title>Nonoalko - Artista Visual</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #111;
-      color: white;
-      padding: 1em;
-      text-align: center;
-    }
-    nav {
-      background: #222;
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      padding: 0.5em 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 2em;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1em;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-    }
-  </style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+  }
+  header {
+    background: #111;
+    color: white;
+    padding: 1em;
+    text-align: center;
+  }
+  nav {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 0.5em 0;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  section {
+    padding: 2em;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .gallery img:hover {
+    transform: scale(1.03);
+  }
+</style>
+
 </head>
 <body>
 
@@ -66,6 +74,8 @@
       <img src="https://i.imgur.com/20ES5HM.jpeg" alt="Gallo del Atardecer">
       <img src="https://i.imgur.com/yOHTK11.jpeg" alt="Cayendo">
        <img src="https://i.imgur.com/e2ul5va.jpeg" alt="Nave Ficción">
+      <img src="https://i.imgur.com/TUIMAGEN.jpg" alt="Dibujo X">
+
     </div>
   </section>
 
