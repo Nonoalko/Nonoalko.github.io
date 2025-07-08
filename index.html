@@ -14,6 +14,35 @@
   font-weight: bold;
   margin-left: 1em;
 }
+.prints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2em;
+  margin-top: 1.5em;
+}
+
+.print-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.print-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+.print-card h3 {
+  margin: 0.3em 0 0.2em;
+}
+
+.print-card p {
+  color: #666;
+  margin-bottom: 0.8em;
+}
 
 body {
       font-family: Arial, sans-serif;
@@ -95,19 +124,22 @@ body {
 
  <section id="prints">
   <h2>Compra prints</h2>
-  <ul>
-    <li>
-      🖼️ <strong>Dibujo "Ave Nocturna"</strong> – Tamaño A4 – $300 MXN
-      <a class="comprar-btn" href="href="https://link.mercadopago.com.mx/nonoalko"
-" target="_blank">Comprar</a>
-    </li>
-    <li>
-      🖼️ <strong>Dibujo "Serpiente Floral"</strong> – Tamaño carta – $250 MXN
-      <a class="comprar-btn" href="href="https://link.mercadopago.com.mx/nonoalko"
-" target="_blank">Comprar</a>
-    </li>
-  </ul>
+  <div class="prints-grid">
+    <div class="print-card">
+      <img src="https://i.imgur.com/J63itye.jpeg" alt="Ave Nocturna">
+      <h3>Ave Nocturna</h3>
+      <p>Tamaño A4 – $300 MXN</p>
+      <a class="comprar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">Comprar</a>
+    </div>
+    <div class="print-card">
+      <img src="https://i.imgur.com/20ES5HM.jpeg" alt="Serpiente Floral">
+      <h3>Serpiente Floral</h3>
+      <p>Tamaño Carta – $250 MXN</p>
+      <a class="comprar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">Comprar</a>
+    </div>
+  </div>
 </section>
+
 
 
   <section id="donaciones">
@@ -117,6 +149,15 @@ body {
 " target="_blank">💖 Donar</a>
 </section>
 
+<footer style="background: #111; color: white; text-align: center; padding: 1em; margin-top: 3em;">
+  <p>Sígueme en redes sociales</p>
+  <p>
+    <a href="https://instagram.com/nonoalko_" target="_blank" style="color: #fdfdfd;">Instagram</a> |
+    <a href="https://tiktok.com/@nonoalko_" target="_blank" style="color: #fdfdfd;">TikTok</a> |
+    <a href="https://facebook.com/Kristoff Selvera Art" target="_blank" style="color: #fdfdfd;">Facebook</a>
+  </p>
+  <p style="font-size: 0.8em; color: #888;">© 2025 Nonoalko – Todos los derechos reservados.</p>
+</footer>
 
 </body>
 </html>
