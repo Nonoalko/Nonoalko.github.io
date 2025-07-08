@@ -4,124 +4,9 @@
   <meta charset="UTF-8">
   <title>Nonoalko – Portafolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
 
-    header {
-      background: #111;
-      color: white;
-      padding: 1em;
-      text-align: center;
-    }
-
-    nav {
-      background: #222;
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      padding: 0.5em 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 2em;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 1em;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1em;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    .donar-btn {
-      background: #0a7;
-      color: white;
-      padding: 1em 2em;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      display: inline-block;
-      text-align: center;
-      margin-top: 1em;
-    }
-
-    .donar-btn:hover {
-      background: #088f6f;
-    }
-
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      background: white;
-      padding: 2em;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 1em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    form button {
-      background: #111;
-      color: white;
-      border: none;
-      padding: 1em 2em;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 1.5em 1em;
-      margin-top: 3em;
-    }
-
-    footer a {
-      color: #fdfdfd;
-      text-decoration: none;
-      margin: 0 0.5em;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <!-- Aquí enlazamos el archivo externo de estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -139,21 +24,17 @@
   <section id="galeria">
     <h2>Galería de Arte</h2>
     <div class="gallery">
-      <!-- Puedes agregar más imágenes copiando y pegando esta línea -->
       <img src="https://i.imgur.com/J63itye.jpeg" alt="CranoGron">
       <img src="https://i.imgur.com/20ES5HM.jpeg" alt="Gallo del Atardecer">
       <img src="https://i.imgur.com/yOHTK11.jpeg" alt="Cayendo">
       <img src="https://i.imgur.com/e2ul5va.jpeg" alt="Nave 04">
-      <!-- Agrega más imágenes aquí -->
     </div>
   </section>
 
   <section id="donaciones">
     <h2>Apóyame con una Donación</h2>
-    <p style="text-align: center;">Tu apoyo me permite seguir creando arte independiente:</p>
-    <div style="text-align: center;">
-      <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">💖 Donar vía MercadoPago</a>
-    </div>
+    <p>Tu apoyo me permite seguir creando arte independiente:</p>
+    <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">💖 Donar vía MercadoPago</a>
   </section>
 
   <section id="encargos">
@@ -164,7 +45,7 @@
       <textarea name="mensaje" rows="5" placeholder="Describe tu idea, estilo, tamaño, colores..." required></textarea>
       <button type="submit">Enviar Encargo</button>
     </form>
-    <p style="text-align: center; font-size: 0.9em; color: #555;">Te responderé lo antes posible para confirmar los detalles.</p>
+    <p>Te responderé lo antes posible para confirmar los detalles.</p>
   </section>
 
   <footer>
@@ -173,9 +54,11 @@
       <a href="https://instagram.com/nonoalko_" target="_blank">Instagram</a> |
       <a href="https://tiktok.com/@nonoalko_" target="_blank">TikTok</a>
     </p>
-    <p style="font-size: 0.8em; color: #888;">© 2025 Nonoalko – Todos los derechos reservados.</p>
+    <p>© 2025 Nonoalko – Todos los derechos reservados.</p>
   </footer>
 
+  <!-- Enlaza tu archivo JS aquí si luego agregas funciones -->
+  <script src="script.js"></script>
 </body>
 </html>
 
