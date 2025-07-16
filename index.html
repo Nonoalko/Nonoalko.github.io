@@ -6,5 +6,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  
 </head>
+<body>
+  <header>
+    <h1>Nonoalko – Portafolio Artístico</h1>
+    <p>Ilustración, arte y encargos personalizados</p>
+  </header>
+
+  <nav>
+    <a href="#galeria">Galería</a>
+    <a href="#donaciones">Donaciones</a>
+    <a href="#encargos">Encargos</a>
+  </nav>
+
+  <main>
+    <section id="galeria">
+      <h2>Galería de Arte</h2>
+      <div class="gallery">
+        <img src="https://i.imgur.com/J63itye.jpeg" alt="CranoGron">
+        <img src="https://i.imgur.com/20ES5HM.jpeg" alt="Gallo del Atardecer">
+        <img src="https://i.imgur.com/yOHTK11.jpeg" alt="Cayendo">
+        <img src="https://i.imgur.com/e2ul5va.jpeg" alt="Nave 04">
+      </div>
+    </section>
+
+    <section id="donaciones">
+      <h2>Apóyame con una Donación</h2>
+      <p class="center">Tu apoyo me permite seguir creando arte independiente:</p>
+      <div class="center">
+        <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">💖 Donar vía MercadoPago</a>
+      </div>
+    </section>
+
+    <section id="encargos">
+      <h2>Encarga una Ilustración</h2>
+      <form action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <textarea name="mensaje" rows="5" placeholder="Describe tu idea, estilo, tamaño, colores..." required></textarea>
+        <button type="submit">Enviar Encargo</button>
+      </form>
+      <p class="center nota">Te responderé lo antes posible para confirmar los detalles.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Sígueme en redes:</p>
+    <p>
+      <a href="https://instagram.com/nonoalko_" target="_blank">Instagram</a> |
+      <a href="https://tiktok.com/@nonoalko_" target="_blank">TikTok</a>
+    </p>
+    <p class="copy">&copy; 2025 Nonoalko – Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Scroll suave entre secciones
+    document.querySelectorAll('a[href^="#"]').forEach(enlace => {
+      enlace.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Confirmación de formulario (opcional)
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', () => {
+      setTimeout(() => {
+        alert('🎨 ¡Gracias por tu encargo! Te contactaremos pronto.');
+      }, 500);
+    });
+  </script>
+</body>
+</html>
+
