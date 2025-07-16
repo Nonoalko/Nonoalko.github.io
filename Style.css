@@ -9,10 +9,24 @@
   --gris: #ccc;
   --gris-suave: #eee;
   --sombra: rgba(0, 0, 0, 0.15);
+}
 
-  
-}/* Transiciones suaves al cambiar tema o mostrar elementos */
+/* Reset + comportamiento general */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -21,7 +35,21 @@ body {
   color: #e0e0e0;
 }
 
-/* Efecto de aparición al hacer scroll */
+.modo-oscuro form {
+  background: #1d1d1d;
+}
+
+.modo-oscuro input,
+.modo-oscuro textarea {
+  background: #2a2a2a;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+.modo-oscuro form button {
+  background: #333;
+}
+
 .visible {
   opacity: 1;
   transform: translateY(0);
@@ -33,27 +61,23 @@ section, .gallery img, form, .card, .proyecto {
   transform: translateY(20px);
 }
 
-/* Galería flexible con transiciones */
-.gallery {
-  display: grid;
-  gap: 1rem;
-  transition: all 0.3s ease;
+section {
+  animation: fadeIn 1s ease both;
+  animation-delay: 0.3s;
+  margin-bottom: 4em;
 }
 
-
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: var(--fondo);
-  color: var(--texto);
-  line-height: 1.6;
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+/* ESTRUCTURA */
 
 header {
   background: linear-gradient(to right, #222, #444);
@@ -62,17 +86,6 @@ header {
   padding: 3em 1em 2em;
   box-shadow: 0 4px 10px var(--sombra);
   animation: fadeInDown 1s ease-out;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 nav {
@@ -113,6 +126,7 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5em;
   margin-bottom: 2em;
+  transition: all 0.3s ease;
 }
 
 .gallery img {
@@ -175,6 +189,14 @@ form textarea {
   border: 1px solid var(--gris);
   border-radius: 8px;
   font-family: 'Montserrat', sans-serif;
+  transition: border 0.3s, background 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--primario);
+  outline: none;
+  background: var(--gris-suave);
 }
 
 form button {
@@ -222,16 +244,3 @@ footer a:hover {
   color: #888;
   margin-top: 1em;
 }
-
-/* Scroll reveal animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-section {
-  animation: fadeIn 1s ease both;
-  animation-delay: 0.3s;
-  margin-bottom: 4em;
-}
-
