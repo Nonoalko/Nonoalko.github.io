@@ -9,7 +9,37 @@
   --gris: #ccc;
   --gris-suave: #eee;
   --sombra: rgba(0, 0, 0, 0.15);
+
+  
+}/* Transiciones suaves al cambiar tema o mostrar elementos */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.modo-oscuro {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Efecto de aparición al hacer scroll */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section, .gallery img, form, .card, .proyecto {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Galería flexible con transiciones */
+.gallery {
+  display: grid;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
 
 * {
   box-sizing: border-box;
@@ -204,3 +234,4 @@ section {
   animation-delay: 0.3s;
   margin-bottom: 4em;
 }
+
