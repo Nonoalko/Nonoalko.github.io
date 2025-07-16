@@ -1,36 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+:root {
+  --fondo: #fefefe;
+  --texto: #2d2d2d;
+  --primario: #0a7;
+  --primario-hover: #088f6f;
+  --oscuro: #111;
+  --gris: #ccc;
+  --gris-suave: #eee;
+}
+
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  background: #fefefe;
-  color: #2d2d2d;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
 }
 
 header {
   background: linear-gradient(to right, #222, #444);
   color: white;
   text-align: center;
-  padding: 2em 1em;
+  padding: 3em 1em 2em;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
-  font-size: 2.2em;
-  margin-bottom: 0.2em;
+  font-size: 2.5em;
+  margin: 0 0 0.2em;
 }
 
 nav {
-  background: #111;
+  background: var(--oscuro);
   display: flex;
   justify-content: center;
   gap: 2em;
-  padding: 1em 0;
+  padding: 1em;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -38,29 +50,29 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 700;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #0ae;
+  color: var(--primario);
 }
 
-section {
-  padding: 3em 1em;
+main {
+  padding: 2em 1em;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 h2 {
   text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 1.5em;
+  font-size: 2em;
+  margin-bottom: 1.2em;
   color: #111;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5em;
 }
 
@@ -69,28 +81,31 @@ h2 {
   border-radius: 15px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
+}
+
+.center {
+  text-align: center;
 }
 
 .donar-btn {
   display: inline-block;
-  background: #0a7;
+  background: var(--primario);
   color: white;
   padding: 1em 2em;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
   margin-top: 1.5em;
-  text-align: center;
   transition: background 0.3s;
 }
 
 .donar-btn:hover {
-  background: #088f6f;
+  background: var(--primario-hover);
 }
 
 form {
@@ -102,11 +117,12 @@ form {
   margin: 0 auto;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   width: 100%;
   padding: 1em;
   margin-bottom: 1.2em;
-  border: 1px solid #ccc;
+  border: 1px solid var(--gris);
   border-radius: 8px;
   font-family: 'Montserrat', sans-serif;
 }
@@ -126,8 +142,14 @@ form button:hover {
   background: #444;
 }
 
+.nota {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 1em;
+}
+
 footer {
-  background: #111;
+  background: var(--oscuro);
   color: white;
   text-align: center;
   padding: 2em 1em;
@@ -145,3 +167,8 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.copy {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 1em;
+}
