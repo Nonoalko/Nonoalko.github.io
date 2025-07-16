@@ -1,51 +1,67 @@
-// main.js — Potenciado para Nonoalko 💥
+// main.js — Optimizado para Nonoalko 💥
 
-// Scroll suave entre secciones
-document.querySelectorAll('a[href^="#"]').forEach(enlace => {
-  enlace.addEventListener('click', e => {
-    e.preventDefault();
-    const destino = document.querySelector(enlace.getAttribute('href'));
-    destino?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
 
-// Animaciones al hacer scroll con Intersection Observer
-const elementosAnimables = document.querySelectorAll('section, .gallery img, form, .card, .proyecto');
-const observer = new IntersectionObserver(entradas => {
-  entradas.forEach(({ isIntersecting, target }) => {
-    if (isIntersecting) target.classList.add('visible');
-  });
-}, { threshold: 0.15 });
-
-elementosAnimables.forEach(el => observer.observe(el));
-
-// Confirmación visual al enviar formulario
-document.querySelector('form')?.addEventListener('submit', () => {
-  setTimeout(() => {
-    alert('🎨 ¡Gracias por tu encargo, artista! Pronto tendrás noticias nuestras.');
-  }, 300);
-});
-
-// Galería responsiva con efecto fadeIn
-function ajustarGaleria() {
-  const columnas = window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
-  const galeria = document.querySelector('.gallery');
-  if (galeria) {
-    galeria.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
+  // 🌗 Alternador de tema con preferencia guardada
+  const btnTema = document.querySelector('#modo-tema');
+  const temaGuardado = localStorage.getItem('tema');
+  const usaModoOscuro = temaGuardado === 'oscuro' || (!temaGuardado && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  
+  if (usaModoOscuro) {
+    body.classList.add('modo-oscuro');
   }
-}
-window.addEventListener('resize', ajustarGaleria);
-document.addEventListener('DOMContentLoaded', ajustarGaleria);
 
-// 🌗 Alternador de tema con preferencia guardada
-const btnTema = document.querySelector('#modo-tema');
-const body = document.body;
+  if (btnTema) {
+    btnTema.addEventListener('click', () => {
+      const activado = body.classList.toggle('modo-oscuro');
+      localStorage.setItem('tema', activado ? 'oscuro' : 'claro');
+    });
+  }
 
-// Detectar preferencia del sistema
-const temaInicial = localStorage.getItem('tema') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
-if (temaInicial === 'oscuro') body.classList.add('modo-oscuro');
+  // Scroll suave entre secciones
+  const enlacesInternos = document.querySelectorAll('a[href^="#"]');
+  enlacesInternos.forEach(enlace => {
+    enlace.addEventListener('click', e => {
+      const destino = document.querySelector(enlace.getAttribute('href'));
+      if (destino) {
+        e.preventDefault();
+        destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
-btnTema?.addEventListener('click', () => {
-  const modoActual = body.classList.toggle('modo-oscuro');
-  localStorage.setItem('tema', modoActual ? 'oscuro' : 'claro');
+  // Galería responsiva con columnas según tamaño
+  function ajustarGaleria() {
+    const galeria = document.querySelector('.gallery');
+    if (galeria) {
+      const columnas = window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+      galeria.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
+    }
+  }
+
+  window.addEventListener('resize', ajustarGaleria);
+  ajustarGaleria(); // Ejecutar al inicio
+
+  // Animaciones al hacer scroll
+  const elementosAnimables = document.querySelectorAll('section, .gallery img, form, .card, .proyecto');
+  const observer = new IntersectionObserver(entradas => {
+    entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elementosAnimables.forEach(el => observer.observe(el));
+
+  // Confirmación visual al enviar formulario
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', () => {
+      setTimeout(() => {
+        alert('🎨 ¡Gracias por tu encargo! Te contactaremos pronto.');
+      }, 500);
+    });
+  }
 });
