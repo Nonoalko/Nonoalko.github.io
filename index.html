@@ -4,24 +4,27 @@
   <meta charset="UTF-8">
   <title>Nonoalko – Portafolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio artístico de Nonoalko – Ilustración, arte digital y encargos personalizados.">
+  <meta name="author" content="Nonoalko">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header role="banner">
     <h1>Nonoalko – Portafolio Artístico</h1>
     <p>Ilustración, arte y encargos personalizados</p>
   </header>
 
-  <nav>
+  <nav role="navigation" aria-label="Menú principal">
     <a href="#galeria">Galería</a>
     <a href="#donaciones">Donaciones</a>
     <a href="#encargos">Encargos</a>
   </nav>
 
-  <main>
-    <section id="galeria">
-      <h2>Galería de Arte</h2>
+  <main role="main">
+    <section id="galeria" aria-labelledby="titulo-galeria">
+      <h2 id="titulo-galeria">Galería de Arte</h2>
       <div class="gallery">
         <img src="https://i.imgur.com/J63itye.jpeg" alt="CranoGron">
         <img src="https://i.imgur.com/20ES5HM.jpeg" alt="Gallo del Atardecer">
@@ -30,54 +33,39 @@
       </div>
     </section>
 
-    <section id="donaciones">
-      <h2>Apóyame con una Donación</h2>
+    <section id="donaciones" aria-labelledby="titulo-donaciones">
+      <h2 id="titulo-donaciones">Apóyame con una Donación</h2>
       <p class="center">Tu apoyo me permite seguir creando arte independiente:</p>
       <div class="center">
-        <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank">💖 Donar vía MercadoPago</a>
+        <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank" rel="noopener noreferrer">💖 Donar vía MercadoPago</a>
       </div>
     </section>
 
-    <section id="encargos">
-      <h2>Encarga una Ilustración</h2>
+    <section id="encargos" aria-labelledby="titulo-encargos">
+      <h2 id="titulo-encargos">Encarga una Ilustración</h2>
       <form action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo electrónico" required>
-        <textarea name="mensaje" rows="5" placeholder="Describe tu idea, estilo, tamaño, colores..." required></textarea>
+        <!-- ⚠️ Cambia el correo arriba -->
+        <input type="text" name="nombre" placeholder="Tu nombre" required aria-label="Nombre">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico">
+        <textarea name="mensaje" rows="5" placeholder="Describe tu idea, estilo, tamaño, colores..." required aria-label="Mensaje"></textarea>
         <button type="submit">Enviar Encargo</button>
       </form>
       <p class="center nota">Te responderé lo antes posible para confirmar los detalles.</p>
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <p>Sígueme en redes:</p>
     <p>
-      <a href="https://instagram.com/nonoalko_" target="_blank">Instagram</a> |
-      <a href="https://tiktok.com/@nonoalko_" target="_blank">TikTok</a>
+      <a href="https://instagram.com/nonoalko_" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://tiktok.com/@nonoalko_" target="_blank" rel="noopener noreferrer">TikTok</a>
     </p>
     <p class="copy">&copy; 2025 Nonoalko – Todos los derechos reservados.</p>
   </footer>
 
-  <script>
-    // Scroll suave entre secciones
-    document.querySelectorAll('a[href^="#"]').forEach(enlace => {
-      enlace.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+  <!-- Botón para cambiar tema (opcional, si activas en el JS) -->
+  <button id="modo-tema" aria-label="Alternar tema" style="position: fixed; bottom: 1rem; right: 1rem;">🌗</button>
 
-    // Confirmación de formulario (opcional)
-    const form = document.querySelector('form');
-    form?.addEventListener('submit', () => {
-      setTimeout(() => {
-        alert('🎨 ¡Gracias por tu encargo! Te contactaremos pronto.');
-      }, 500);
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
-
