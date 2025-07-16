@@ -8,6 +8,7 @@
   --oscuro: #111;
   --gris: #ccc;
   --gris-suave: #eee;
+  --sombra: rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -29,12 +30,19 @@ header {
   color: white;
   text-align: center;
   padding: 3em 1em 2em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px var(--sombra);
+  animation: fadeInDown 1s ease-out;
 }
 
-header h1 {
-  font-size: 2.5em;
-  margin: 0 0 0.2em;
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 nav {
@@ -43,7 +51,7 @@ nav {
   justify-content: center;
   gap: 2em;
   padding: 1em;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px var(--sombra);
 }
 
 nav a {
@@ -58,7 +66,7 @@ nav a:hover {
 }
 
 main {
-  padding: 2em 1em;
+  padding: 3em 1em;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -72,20 +80,31 @@ h2 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5em;
+  margin-bottom: 2em;
 }
 
 .gallery img {
   width: 100%;
   border-radius: 15px;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px var(--sombra);
   transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
+}
+
+.gallery::after {
+  content: "";
+  display: block;
+  height: 250px;
+  background: repeating-linear-gradient(45deg, #fafafa, #fafafa 10px, #f0f0f0 10px, #f0f0f0 20px);
+  border-radius: 15px;
+  box-shadow: inset 0 0 5px #ccc;
+  opacity: 0.5;
 }
 
 .center {
@@ -112,9 +131,10 @@ form {
   background: white;
   padding: 2em;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px var(--sombra);
   max-width: 600px;
   margin: 0 auto;
+  animation: fadeIn 1s ease;
 }
 
 form input,
@@ -171,4 +191,16 @@ footer a:hover {
   font-size: 0.8em;
   color: #888;
   margin-top: 1em;
+}
+
+/* Scroll reveal animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  animation: fadeIn 1s ease both;
+  animation-delay: 0.3s;
+  margin-bottom: 4em;
 }
