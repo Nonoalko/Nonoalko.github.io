@@ -1,246 +1,247 @@
+/* =============================
+   📁 ARCHIVOS Y ESTRUCTURA BASE
+   =============================
+   - CSS:     /css/style.css
+   - JS:      /js/main.js
+   - Imágenes: /img/
+   - Fuentes:  /fonts/
+*/
+
+/* =============================
+   🎨 VARIABLES Y FUENTES GLOBALES
+   ============================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
-  --fondo: #fefefe;
-  --texto: #2d2d2d;
-  --primario: #0a7;
-  --primario-hover: #088f6f;
-  --oscuro: #111;
-  --gris: #ccc;
-  --gris-suave: #eee;
-  --sombra: rgba(0, 0, 0, 0.15);
+  --color-principal: #1f1f1f;
+  --color-secundario: #f2f2f2;
+  --color-acento: #e63946;
+  --color-fondo: #ffffff;
+  --color-fondo-oscuro: #121212;
+  --color-texto: #333333;
+  --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --transicion: all 0.3s ease;
 }
 
-/* Reset + comportamiento general */
+/* =============================
+   🔄 ANIMACIONES Y EFECTOS
+   ============================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* =============================
+   🔧 RESET Y BASE GLOBAL
+   ============================= */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: var(--fondo);
-  color: var(--texto);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  transition: var(--transicion);
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .modo-oscuro {
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: var(--color-fondo-oscuro);
+  color: var(--color-secundario);
 }
 
-.modo-oscuro form {
-  background: #1d1d1d;
+/* =============================
+   🧩 LAYOUT Y ESTRUCTURA
+   ============================= */
+header {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--color-principal);
+  color: var(--color-secundario);
 }
 
-.modo-oscuro input,
-.modo-oscuro textarea {
-  background: #2a2a2a;
-  color: #f0f0f0;
-  border-color: #555;
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #e8e8e8;
 }
 
-.modo-oscuro form button {
-  background: #333;
+nav a {
+  text-decoration: none;
+  color: var(--color-principal);
+  font-weight: bold;
+  transition: var(--transicion);
+}
+
+nav a:hover {
+  color: var(--color-acento);
+}
+
+main {
+  padding: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+/* =============================
+   🖼️ GALERÍA Y CONTENIDO VISUAL
+   ============================= */
+.gallery {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--sombra-suave);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* =============================
+   💖 DONACIONES Y BOTONES
+   ============================= */
+.donar-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-acento);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: var(--transicion);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.donar-btn:hover {
+  background-color: #c72b3a;
+}
+
+/* =============================
+   📝 FORMULARIO DE ENCARGOS
+   ============================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+input, textarea, button {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+button[type="submit"] {
+  background-color: var(--color-principal);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-acento);
+}
+
+.nota {
+  margin-top: 0.5rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* =============================
+   📱 MEDIA QUERIES (RESPONSIVE)
+   ============================= */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================
+   🔚 FOOTER Y ELEMENTOS FINALES
+   ============================= */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: var(--color-acento);
+}
+
+.copy {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* =============================
+   🎯 CLASES Y UTILIDADES EXTRA
+   ============================= */
+.center {
+  text-align: center;
+}
+
+.card, .proyecto {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
 }
 
 .visible {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-section, .gallery img, form, .card, .proyecto {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-section {
-  animation: fadeIn 1s ease both;
-  animation-delay: 0.3s;
-  margin-bottom: 4em;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ESTRUCTURA */
-
-header {
-  background: linear-gradient(to right, #222, #444);
-  color: white;
-  text-align: center;
-  padding: 3em 1em 2em;
-  box-shadow: 0 4px 10px var(--sombra);
-  animation: fadeInDown 1s ease-out;
-}
-
-nav {
-  background: var(--oscuro);
-  display: flex;
-  justify-content: center;
-  gap: 2em;
-  padding: 1em;
-  box-shadow: 0 2px 4px var(--sombra);
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: var(--primario);
-}
-
-main {
-  padding: 3em 1em;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-h2 {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 1.2em;
-  color: #111;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5em;
-  margin-bottom: 2em;
-  transition: all 0.3s ease;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 4px 8px var(--sombra);
-  transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-.gallery::after {
-  content: "";
-  display: block;
-  height: 250px;
-  background: repeating-linear-gradient(45deg, #fafafa, #fafafa 10px, #f0f0f0 10px, #f0f0f0 20px);
-  border-radius: 15px;
-  box-shadow: inset 0 0 5px #ccc;
-  opacity: 0.5;
-}
-
-.center {
-  text-align: center;
-}
-
-.donar-btn {
-  display: inline-block;
-  background: var(--primario);
-  color: white;
-  padding: 1em 2em;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 1.5em;
-  transition: background 0.3s;
-}
-
-.donar-btn:hover {
-  background: var(--primario-hover);
-}
-
-form {
-  background: white;
-  padding: 2em;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px var(--sombra);
-  max-width: 600px;
-  margin: 0 auto;
-  animation: fadeIn 1s ease;
-}
-
-form input,
-form textarea {
-  width: 100%;
-  padding: 1em;
-  margin-bottom: 1.2em;
-  border: 1px solid var(--gris);
-  border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
-  transition: border 0.3s, background 0.3s;
-}
-
-form input:focus,
-form textarea:focus {
-  border-color: var(--primario);
-  outline: none;
-  background: var(--gris-suave);
-}
-
-form button {
-  background: #222;
-  color: white;
-  border: none;
-  padding: 1em 2em;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-form button:hover {
-  background: #444;
-}
-
-.nota {
-  font-size: 0.9em;
-  color: #555;
-  margin-top: 1em;
-}
-
-footer {
-  background: var(--oscuro);
-  color: white;
-  text-align: center;
-  padding: 2em 1em;
-  margin-top: 4em;
-}
-
-footer a {
-  color: #fdfdfd;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 0 0.7em;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-.copy {
-  font-size: 0.8em;
-  color: #888;
-  margin-top: 1em;
-}
+/* Fin de style.css */
