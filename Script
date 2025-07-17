@@ -1,1 +1,66 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  const btnTema = document.querySelector('#modo-tema');
+
+  // Aplicar tema guardado o preferencia sistema
+  const temaGuardado = localStorage.getItem('tema');
+  const usaModoOscuro = temaGuardado === 'oscuro' || (!temaGuardado && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (usaModoOscuro) body.classList.add('modo-oscuro');
+
+  // Cambiar icono botón tema
+  function actualizarIcono() {
+    btnTema.textContent = body.classList.contains('modo-oscuro') ? '🌞' : '🌗';
+  }
+  actualizarIcono();
+
+  // Alternar tema al click
+  btnTema.addEventListener('click', () => {
+    const activado = body.classList.toggle('modo-oscuro');
+    localStorage.setItem('tema', activado ? 'oscuro' : 'claro');
+    actualizarIcono();
+  });
+
+  // Scroll suave para enlaces internos
+  document.querySelectorAll('a[href^="#"]').forEach(enlace => {
+    enlace.addEventListener('click', e => {
+      const destino = document.querySelector(enlace.getAttribute('href'));
+      if (destino) {
+        e.preventDefault();
+        destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Ajustar galería responsive
+  function ajustarGaleria() {
+    const galeria = document.querySelector('.gallery');
+    if (galeria) {
+      const columnas = window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+      galeria.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
+    }
+  }
+  window.addEventListener('resize', ajustarGaleria);
+  ajustarGaleria();
+
+  // Animaciones con Intersection Observer
+  const elementosAnimables = document.querySelectorAll('section, .gallery img, form, .card, .proyecto');
+  const observer = new IntersectionObserver(entradas => {
+    entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  elementosAnimables.forEach(el => observer.observe(el));
+
+  // Confirmación envío formulario
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', () => {
+      setTimeout(() => {
+        alert('🎨 ¡Gracias por tu encargo! Te contactaremos pronto.');
+      }, 500);
+    });
+  }
+});
 
