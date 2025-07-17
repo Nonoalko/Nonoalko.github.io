@@ -1,21 +1,248 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nonoalko – Portafolio</title>
+  <meta name="description" content="Portafolio artístico de Nonoalko – Ilustración, arte digital y encargos personalizados." />
+  <meta name="author" content="Nonoalko" />
+  <link rel="icon" href="favicon.ico" />
 
+  <style>
+    /* =============================
+       🎨 Estilos CSS Integrados
+       ============================= */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nonoalko – Portafolio</title>
-<meta name="description" content="Portafolio artístico de Nonoalko – Ilustración, arte digital y encargos personalizados.">
-<meta name="author" content="Nonoalko">
+    :root {
+      --color-principal: #1f1f1f;
+      --color-secundario: #f2f2f2;
+      --color-acento: #e63946;
+      --color-fondo: #ffffff;
+      --color-fondo-oscuro: #121212;
+      --color-texto: #333333;
+      --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.1);
+      --transicion: all 0.3s ease;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="css/style.css">
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--color-texto);
+      background-color: var(--color-fondo);
+      transition: var(--transicion);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .modo-oscuro {
+      background-color: var(--color-fondo-oscuro);
+      color: var(--color-secundario);
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--color-principal);
+      color: var(--color-secundario);
+      box-shadow: var(--sombra-suave);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background-color: #e8e8e8;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-principal);
+      font-weight: bold;
+      transition: var(--transicion);
+    }
+
+    nav a:hover {
+      color: var(--color-acento);
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: var(--sombra-suave);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      cursor: pointer;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .donar-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--color-acento);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: var(--transicion);
+      font-weight: bold;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .donar-btn:hover {
+      background-color: #c72b3a;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 1rem auto 0;
+    }
+
+    input, textarea, button {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button[type="submit"] {
+      background-color: var(--color-principal);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: var(--transicion);
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--color-acento);
+    }
+
+    .nota {
+      margin-top: 0.5rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f0f0f0;
+      color: #555;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--color-principal);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      color: var(--color-acento);
+    }
+
+    .copy {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Botón tema fijo */
+    #modo-tema {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--color-principal);
+      border: none;
+      color: var(--color-secundario);
+      font-size: 1.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: var(--sombra-suave);
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+    #modo-tema:hover {
+      background-color: var(--color-acento);
+    }
+  </style>
 </head>
-  
 <body>
+
   <header role="banner">
     <h1>Nonoalko – Portafolio Artístico</h1>
     <p>Ilustración, arte y encargos personalizados</p>
@@ -31,10 +258,10 @@
     <section id="galeria" aria-labelledby="titulo-galeria">
       <h2 id="titulo-galeria">Galería de Arte</h2>
       <div class="gallery">
-        <img src="https://i.imgur.com/J63itye.jpeg" alt="CranoGron">
-        <img src="https://i.imgur.com/20ES5HM.jpeg" alt="Gallo del Atardecer">
-        <img src="https://i.imgur.com/yOHTK11.jpeg" alt="Cayendo">
-        <img src="https://i.imgur.com/e2ul5va.jpeg" alt="Nave 04">
+        <img src="https://i.imgur.com/J63itye.jpeg" alt="CranoGron" />
+        <img src="https://i.imgur.com/20ES5HM.jpeg" alt="Gallo del Atardecer" />
+        <img src="https://i.imgur.com/yOHTK11.jpeg" alt="Cayendo" />
+        <img src="https://i.imgur.com/e2ul5va.jpeg" alt="Nave 04" />
       </div>
     </section>
 
@@ -42,7 +269,13 @@
       <h2 id="titulo-donaciones">Apóyame con una Donación</h2>
       <p class="center">Tu apoyo me permite seguir creando arte independiente:</p>
       <div class="center">
-        <a class="donar-btn" href="https://link.mercadopago.com.mx/nonoalko" target="_blank" rel="noopener noreferrer">💖 Donar vía MercadoPago</a>
+        <a
+          class="donar-btn"
+          href="https://link.mercadopago.com.mx/nonoalko"
+          target="_blank"
+          rel="noopener noreferrer"
+          >💖 Donar vía MercadoPago</a
+        >
       </div>
     </section>
 
@@ -50,9 +283,15 @@
       <h2 id="titulo-encargos">Encarga una Ilustración</h2>
       <form action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST">
         <!-- ⚠️ Cambia el correo arriba -->
-        <input type="text" name="nombre" placeholder="Tu nombre" required aria-label="Nombre">
-        <input type="email" name="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico">
-        <textarea name="mensaje" rows="5" placeholder="Describe tu idea, estilo, tamaño, colores..." required aria-label="Mensaje"></textarea>
+        <input type="text" name="nombre" placeholder="Tu nombre" required aria-label="Nombre" />
+        <input type="email" name="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico" />
+        <textarea
+          name="mensaje"
+          rows="5"
+          placeholder="Describe tu idea, estilo, tamaño, colores..."
+          required
+          aria-label="Mensaje"
+        ></textarea>
         <button type="submit">Enviar Encargo</button>
       </form>
       <p class="center nota">Te responderé lo antes posible para confirmar los detalles.</p>
@@ -68,9 +307,74 @@
     <p class="copy">&copy; 2025 Nonoalko – Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Botón para cambiar tema (opcional, si activas en el JS) -->
-  <button id="modo-tema" aria-label="Alternar tema" style="position: fixed; bottom: 1rem; right: 1rem;">🌗</button>
-  
-<script defer src="js/main.js"></script>
+  <button id="modo-tema" aria-label="Alternar tema" title="Alternar tema 🌗">🌗</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+
+      // 🌗 Alternador de tema con preferencia guardada
+      const btnTema = document.querySelector('#modo-tema');
+      const temaGuardado = localStorage.getItem('tema');
+      const usaModoOscuro = temaGuardado === 'oscuro' || (!temaGuardado && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+      if (usaModoOscuro) {
+        body.classList.add('modo-oscuro');
+      }
+
+      if (btnTema) {
+        btnTema.addEventListener('click', () => {
+          const activado = body.classList.toggle('modo-oscuro');
+          localStorage.setItem('tema', activado ? 'oscuro' : 'claro');
+        });
+      }
+
+      // Scroll suave entre secciones
+      const enlacesInternos = document.querySelectorAll('a[href^="#"]');
+      enlacesInternos.forEach(enlace => {
+        enlace.addEventListener('click', e => {
+          const destino = document.querySelector(enlace.getAttribute('href'));
+          if (destino) {
+            e.preventDefault();
+            destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Galería responsiva con columnas según tamaño
+      function ajustarGaleria() {
+        const galeria = document.querySelector('.gallery');
+        if (galeria) {
+          const columnas = window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+          galeria.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
+        }
+      }
+
+      window.addEventListener('resize', ajustarGaleria);
+      ajustarGaleria(); // Ejecutar al inicio
+
+      // Animaciones al hacer scroll
+      const elementosAnimables = document.querySelectorAll('section, .gallery img, form, .card, .proyecto');
+      const observer = new IntersectionObserver(entradas => {
+        entradas.forEach(entrada => {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      elementosAnimables.forEach(el => observer.observe(el));
+
+      // Confirmación visual al enviar formulario
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', () => {
+          setTimeout(() => {
+            alert('🎨 ¡Gracias por tu encargo! Te contactaremos pronto.');
+          }, 500);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
